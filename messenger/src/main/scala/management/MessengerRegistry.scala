@@ -1,5 +1,0 @@
-package management
-
-class MessengerRegistry {
-
-}
