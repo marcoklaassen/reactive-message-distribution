@@ -1,2 +1,6 @@
 *.class
 *.log
+overview.pdf
+overview.pptx
+reactive-message-distribution/.idea/
+reactive-message-distribution/project/
