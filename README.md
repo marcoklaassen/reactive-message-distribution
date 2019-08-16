@@ -43,6 +43,6 @@ The demo package deploys the messengers and the registry as vert.x verticles and
 
 ### Missing
 - REST Endpoint for applications which can not publish messages directly to the EventBus.
-- User configuration to set which application should send messages via which messenger.
 - Receiver Resoultion for each Messenger: Translate the `receiverIdentifier` to the messenger specific receiver (e.g. translage `receiverIdentifier` to mail-address)
 - Implementation of the `message-model` (messages are raw strings at this moment)
+- Frontend stuff
