@@ -10,8 +10,8 @@ class TelegramMessenger extends ScalaVerticle {
     val eb = vertx.eventBus()
     eb.publish("avengers.helicarrier.registry", this.getClass.getName)
 
-    eb.consumer("avengers.helicarrier.communication", (message: Message[String]) => {
-      println(s"[Telegram Messenger] received a message: ${message.body()}")
+    eb.consumer(s"avengers.helicarrier.communication.${this.getClass.getName}", (message: Message[String]) => {
+      println(s"[Telegram Messenger] received a message: ${message.body}")
     })
 
   }

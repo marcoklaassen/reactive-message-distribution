@@ -1,0 +1,49 @@
+POST http://127.0.0.1:8080/contact
+Content-Type: application/json
+
+{
+  "userId": "myCompanyId",
+  "messenger.MailMessenger": "username@domain.com",
+  "messenger.TelegramMessenger": "@telegramId"
+}
+
+###
+
+POST http://127.0.0.1:8080/config
+Content-Type: application/json
+
+{
+  "userId": "IronMan",
+  "appConfig" : {
+     "app1" : {
+        "messenger.MailMessenger": true,
+        "messenger.TelegramMessenger": true
+     },
+    "app2" : {
+      "messenger.MailMessenger": false,
+      "messenger.TelegramMessenger": true
+    }
+  }
+}
+
+###
+
+POST http://127.0.0.1:8080/config
+Content-Type: application/json
+
+{
+  "userId": "CaptainAmerica",
+  "appConfig" : {
+    "app1" : {
+      "messenger.MailMessenger": false,
+      "messenger.TelegramMessenger": true
+    },
+    "app2" : {
+      "messenger.MailMessenger": true,
+      "messenger.TelegramMessenger": false
+    }
+  }
+
+}
+
+###

@@ -21,20 +21,20 @@ class MailMessenger extends ScalaVerticle {
 
     eb.publish("avengers.helicarrier.registry", this.getClass.getName)
 
-    eb.consumer("avengers.helicarrier.communication", (message: Message[String]) => {
+    eb.consumer(s"avengers.helicarrier.communication.${this.getClass.getName}", (message: Message[String]) => {
       val mail = new MailMessage()
       mail.setFrom("tony.stark@avengers.org (Tony Stark)")
       mail.setTo("tony.stark@avengers.org")
-      mail.setText(s"${message.body()}")
+      mail.setText(s"${message.body}")
 
       mailClient.sendMail(mail, (result: AsyncResult[MailResult]) => {
         if (result.succeeded()) {
           println("[Mail Messenger] mail delivered")
         } else {
-          println(result.cause.printStackTrace)
+          println(result.cause.printStackTrace())
         }
       })
-      println(s"[Mail Messenger] received a message: ${message.body()}")
+      println(s"[Mail Messenger] received a message: ${message.body}")
     })
   }
 
